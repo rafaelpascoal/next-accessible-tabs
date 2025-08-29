@@ -2,24 +2,13 @@
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { motion, AnimatePresence } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
+import { useState } from "react";
 
 
 export default function AccessibleTabs() {
 
     // State to track the active tab
     const [activeTab, setActiveTab] = useState("account");
-
-    // Ref to the content div
-    const contentRef = useRef<HTMLDivElement>(null);
-
-
-    // Automatic focus on the active tab
-    useEffect(() => {
-        if (contentRef.current) {
-            contentRef.current.focus();
-        }
-    }, [activeTab]);
 
     return (
         // suppressHydrationWarning is used to prevent the warning that the component is not hydrated
@@ -40,8 +29,6 @@ export default function AccessibleTabs() {
                                 asChild
                             >
                                 <motion.div
-                                    ref={contentRef}
-                                    tabIndex={-1}
                                     initial={{ opacity: 0, x: -20 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     exit={{ opacity: 0, x: 20 }}
@@ -64,8 +51,6 @@ export default function AccessibleTabs() {
                                 asChild
                             >
                                 <motion.div
-                                    ref={contentRef}
-                                    tabIndex={-1}
                                     initial={{ opacity: 0, x: 20 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     exit={{ opacity: 0, x: -20 }}
