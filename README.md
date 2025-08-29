@@ -1,36 +1,145 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# An **accessible and reusable Tabs** built with [shadcn/ui](https://ui.shadcn.com/) and Radix, featuring proper accessibility support and Playwright tests.
 
-## Getting Started
+---
 
-First, run the development server:
+## 🚀 Tech Stack
+
+- **Framework:** Next.js (App Router)
+- **UI:** shadcn/ui + Radix
+- **Styling:** Tailwind CSS
+- **Animation (optional):** Framer Motion
+- **Testing:** Playwright (end-to-end tests)
+
+---
+
+## 🛠 Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/rafaelpascoal/nextjs-accessible-tabs.git
+cd nextjs-accessible-tabs
+```
+
+### 2. Install Dependencies
+
+```bash
+pnpm install
+# or npm install / yarn install
+```
+
+### 3. Install shadcn/ui
+
+```bash
+npx shadcn-ui init
+```
+
+- Choose a theme (e.g., neutral, gray, zinc, stone, slate)
+- Confirm creation of the components/ui folder.
+
+### 4. Add Required Components
+
+```bash
+npx shadcn-ui add tabs
+```
+
+### 5. Run the Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- ♿ Fully accessible Tabs with keyboard navigation
+- ⌨️ Handles ESC key and focus management
+- 🔄 Reusable and composable architecture
+- 🧪 Playwright tests covering core behavior
+- ⚡ Built with modern Next.js App Router
+- 🖼 Smooth animations using Framer Motion
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ♿ Accessibility Features
+This component follows accessibility best practices using Radix UI:
 
-## Learn More
+- Focus trapping / management
+- ESC key handling
+- Keyboard navigation support
+- ARIA attributes automatically managed by Radix
 
-To learn more about Next.js, take a look at the following resources:
+## 📦 Usage
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```typescript
+'use client'
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+import { useState } from "react"
+import AccessibleTabs from "@/components/AccessibleTabs"
 
-## Deploy on Vercel
+export default function Page() {
+  return (
+    <main className="flex min-h-screen items-center justify-center">
+      <AccessibleTabs />
+    </main>
+  )
+}
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🧪 Running Tests
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npx playwright test
+```
+
+## 📸 Preview
+
+🔗 Live Demo: https://next-accessible-tabs.vercel.app/
+
+## 🚀 Deployment
+
+- Optimized for deployment on Vercel.
+- Connect your GitHub repository and deploy with one click.
+
+## 📋 Project Checklist
+
+### Setup & Base
+
+✅ Initialize Next.js project (App Router)
+✅ Configure Git repository and GitHub remote
+✅ Install Tailwind CSS
+✅ Install shadcn/ui + Radix
+✅ Implement reusable AccessibleTabs component
+✅ Update page.tsx to use the component
+✅ Update README with initial project structure and usage
+
+### Features
+
+✅ Fully accessible keyboard navigation
+✅ Automatic focus on active tab
+✅ Smooth animations with Framer Motion
+
+### Documentation
+
+✅ README updated with usage examples
+✅ Add installation instructions for shadcn/ui
+✅ Add detailed explanation of accessibility features
+
+### Testing
+
+✅ Install & configure Playwright
+✅ End-to-end tests for tab switching, keyboard navigation
+
+### Deployment
+
+✅ Deploy to Vercel with live demo link
+
+## 📂 Project Structure
+
+```bash
+src/
+ ├─ app/               # Next.js App Router structure
+ ├─ components/        # Reusable UI components
+ │   ├─ ui/            # shadcn/ui components (button, dialog, tabs, etc.)
+ │   └─ AccessibleTabs/ # Accessible Tabs implementation
+ └─  tests/e2e            # Playwright end-to-end tests
+ ```
+
+ -  👉 This template works for Tabs, Dropdown, Accordion, Modal, Toast, etc. — just replace Tabs with the component name.
